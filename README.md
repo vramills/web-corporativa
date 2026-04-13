@@ -25,3 +25,11 @@ El projecte resol els problemes de FoodLogístic S.A. mitjançant:
 ## Autor
 
 👤 Víctor Rodríguez Amills
+
+## Control i Analítica (StatCounter)
+
+<img src="img/1.png">
+
+<img src="img/2.png">
+
+<img src="img/3.png">
