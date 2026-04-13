@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodLogístic S.A. | Eficiència i Seguretat Alimentària</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* VARIABLES DE DISSENY */
+        :root {
+            --primary: #2c3e50;
+            /* Blau fosc professional */
+            --accent: #27ae60;
+            /* Verd seguretat alimentària */
+            --bg-light: #f8f9fa;
+            /* Gris molt clar per a fons */
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        /* RESET I ESTILS GENERALS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* HEADER & NAV */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+            transition: var(--transition);
+        }
+
+        /* HERO SECTION */
+        #hero {
+            height: 100vh;
+            background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)),
+                url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=2000') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            padding-top: 60px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--accent);
+            color: white;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background: #219150;
+            transform: translateY(-3px);
+        }
+
+        /* SECCIONS GENERALS */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            margin: 1rem auto;
+        }
+
+        /* SERVEIS (GRID) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            padding: 2rem;
+            background: var(--bg-light);
+            border-radius: 10px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        /* INFRAESTRUCTURA & SEGURETAT */
+        .split-section {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .split-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .split-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .split-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 20px 20px 0 var(--accent);
+        }
+
+        /* COOKIE BANNER */
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--primary);
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 2000;
+            font-size: 0.9rem;
+            display: none;
+            /* Es mostra via JS */
+        }
+
+        .btn-small {
+            padding: 0.5rem 1rem;
+            background: var(--accent);
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary);
+            color: var(--text-light);
+            padding: 3rem 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .legal-links a {
+            display: block;
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+        }
+
+        .legal-links a:hover {
+            opacity: 1;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            /* Simplificació per al prototip */
+            .split-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .split-image img {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">FOOD<span>LOGÍSTIC</span></div>
+                <ul class="nav-links">
+                    <li><a href="#hero">Inici</a></li>
+                    <li><a href="#serveis">Serveis</a></li>
+                    <li><a href="#infraestructura">Infraestructura</a></li>
+                    <li><a href="#seguretat">Seguretat</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container hero-content">
+            <h1>Infraestructura IT per a l'era moderna</h1>
+            <p>Solucions escalables, segures i d'alta disponibilitat per a FoodLogístic S.A.</p>
+            <a href="#serveis" class="btn">Coneix la Proposta</a>
+        </div>
+    </section>
+
+    <main>
+        <section id="serveis" class="container">
+            <div class="section-title">
+                <h2>Solucions Intermodulars</h2>
+            </div>
+            <div class="services-grid">
+                <article class="service-card">
+                    <i>☁️</i>
+                    <h3>Núvol</h3>
+                    <p>Migració de correu corporatiu i eines col·laboratives de nova generació.</p>
+                </article>
+                <article class="service-card">
+                    <i>🛡️</i>
+                    <h3>Seguretat</h3>
+                    <p>Compliment estricte de la LOPD/RGPD i protecció dades crítiques.</p>
+                </article>
+                <article class="service-card">
+                    <i>⚙️</i>
+                    <h3>Infraestructura</h3>
+                    <p>Alta disponibilitat i redundància per eliminar aturades de producció.</p>
+                </article>
+                <article class="service-card">
+                    <i>🌐</i>
+                    <h3>Web & LSSI</h3>
+                    <p>Presència digital actualitzada i conforme a la normativa legal vigent.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="infraestructura" style="background: var(--bg-light);">
+            <div class="container split-section">
+                <div class="split-image">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=1000"
+                        alt="Servidors alta disponibilitat">
+                </div>
+                <div class="split-content">
+                    <h2>Alta Disponibilitat</h2>
+                    <p>Implementem sistemes de redundància que garanteixen que el negoci de FoodLogístic no s'aturi mai.
+                        Servidors de fitxers redundants i gestió centralitzada.</p>
+                    <br>
+                    <ul style="padding-left: 20px;">
+                        <li>✅ Redundància de hardware</li>
+                        <li>✅ Servidor d'impressió centralitzat</li>
+                        <li>✅ Monitorització 24/7</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="seguretat" class="container">
+            <div class="split-section" style="flex-direction: row-reverse;">
+                <div class="split-image">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000"
+                        alt="Ciberseguretat">
+                </div>
+                <div class="split-content">
+                    <h2>Seguretat i LOPD</h2>
+                    <p>Protegim el actiu més valuós: la informació. La nostra solució inclou encriptació de dades i
+                        protocols de formació per als empleats.</p>
+                    <br>
+                    <p><i>"La seguretat no és un producte, és un procés."</i></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>FoodLogístic S.A.</h3>
+                    <p>Transformació digital real per a empreses líders.</p>
+                </div>
+                <div class="legal-links">
+                    <h3>Legal</h3>
+                    <a href="#">Avís Legal</a>
+                    <a href="#">Política de Privacitat</a>
+                    <a href="#">Política de Cookies (LSSI)</a>
+                </div>
+                <div>
+                    <h3>Contacte</h3>
+                    <p>it-support@foodlogistic.cat</p>
+                    <p>Projecte Intermodular SMX</p>
+                </div>
+            </div>
+            <hr style="opacity: 0.2; margin-bottom: 1rem;">
+            <p style="text-align: center; opacity: 0.6;">&copy; 2026 Equip IT Professional. Tots els drets reservats.
+            </p>
+        </div>
+    </footer>
+
+    <div id="cookie-banner">
+        <p>Utilitzem cookies pròpies per millorar la teva experiència segons la normativa LSSI. <a href="#"
+                style="text-decoration: underline;">Més informació</a>.</p>
+        <button id="accept-cookies" class="btn-small">Acceptar</button>
+    </div>
+
+    <script>
+        /**
+         * LÒGICA FRONT-END FOODLOGÍSTIC
+         */
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // 1. GESTIÓ DE COOKIES (Compliance LSSI)
+            const cookieBanner = document.getElementById('cookie-banner');
+            const acceptBtn = document.getElementById('accept-cookies');
+
+            // Comprovem si l'usuari ja ha acceptat les cookies
+            if (!localStorage.getItem('cookies-acceptades')) {
+                setTimeout(() => {
+                    cookieBanner.style.display = 'flex';
+                }, 1000);
+            }
+
+            acceptBtn.addEventListener('click', () => {
+                localStorage.setItem('cookies-acceptades', 'true');
+                cookieBanner.style.opacity = '0';
+                setTimeout(() => cookieBanner.style.display = 'none', 500);
+            });
+
+            // 2. SCROLL SUAU (SMOOTH SCROLL)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 70, // Offset per l'header fix
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // 3. EFECTE DE REVELACIÓ (SCROLL REVEAL SIMPLE)
+            const revealOnScroll = () => {
+                const sections = document.querySelectorAll('section');
+                const triggerBottom = window.innerHeight * 0.8;
+
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    if (sectionTop < triggerBottom) {
+                        section.style.opacity = '1';
+                        section.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+
+            // Estils inicials per a l'efecte
+            document.querySelectorAll('section').forEach(s => {
+                if (s.id !== 'hero') {
+                    s.style.opacity = '0';
+                    s.style.transform = 'translateY(20px)';
+                    s.style.transition = 'all 0.6s ease-out';
+                }
+            });
+
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll(); // Llançament inicial
+        });
+    </script>
+</body>
+
+</html>
