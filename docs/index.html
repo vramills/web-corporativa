@@ -11,11 +11,8 @@
         /* VARIABLES DE DISSENY */
         :root {
             --primary: #2c3e50;
-            /* Blau fosc professional */
             --accent: #27ae60;
-            /* Verd seguretat alimentària */
             --bg-light: #f8f9fa;
-            /* Gris molt clar per a fons */
             --text-dark: #333333;
             --text-light: #ffffff;
             --transition: all 0.3s ease;
@@ -98,7 +95,7 @@
 
         /* HERO SECTION */
         #hero {
-            height: 100vh;
+            height: 80vh;
             background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)),
                 url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=2000') center/cover;
             display: flex;
@@ -125,8 +122,10 @@
             padding: 1rem 2.5rem;
             background: var(--accent);
             color: white;
+            border: none;
             border-radius: 5px;
             font-weight: 600;
+            cursor: pointer;
             transition: var(--transition);
         }
 
@@ -174,11 +173,6 @@
             transition: var(--transition);
         }
 
-        .service-card:hover {
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-            transform: translateY(-5px);
-        }
-
         .service-card i {
             font-size: 2.5rem;
             color: var(--accent);
@@ -186,28 +180,54 @@
             display: block;
         }
 
-        /* INFRAESTRUCTURA & SEGURETAT */
-        .split-section {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-            flex-wrap: wrap;
+        /* SECCIÓ SOBRE NOSALTRES */
+        #sobre-nosaltres {
+            background-color: var(--bg-light);
         }
 
-        .split-content {
-            flex: 1;
-            min-width: 300px;
+        .about-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
         }
 
-        .split-image {
-            flex: 1;
-            min-width: 300px;
+        /* FORMULARI DE CONTACTE */
+        #contacte {
+            padding-bottom: 5rem;
         }
 
-        .split-image img {
-            width: 100%;
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
             border-radius: 10px;
-            box-shadow: 20px 20px 0 var(--accent);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            resize: vertical;
         }
 
         /* COOKIE BANNER */
@@ -225,7 +245,6 @@
             z-index: 2000;
             font-size: 0.9rem;
             display: none;
-            /* Es mostra via JS */
         }
 
         .btn-small {
@@ -252,16 +271,6 @@
             margin-bottom: 2rem;
         }
 
-        .legal-links a {
-            display: block;
-            margin-bottom: 0.5rem;
-            opacity: 0.8;
-        }
-
-        .legal-links a:hover {
-            opacity: 1;
-        }
-
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .hero-content h1 {
@@ -270,16 +279,6 @@
 
             .nav-links {
                 display: none;
-            }
-
-            /* Simplificació per al prototip */
-            .split-section {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .split-image img {
-                box-shadow: none;
             }
         }
     </style>
@@ -294,8 +293,8 @@
                 <ul class="nav-links">
                     <li><a href="#hero">Inici</a></li>
                     <li><a href="#serveis">Serveis</a></li>
-                    <li><a href="#infraestructura">Infraestructura</a></li>
-                    <li><a href="#seguretat">Seguretat</a></li>
+                    <li><a href="#sobre-nosaltres">Sobre nosaltres</a></li>
+                    <li><a href="#contacte">Contacte</a></li>
                 </ul>
             </nav>
         </div>
@@ -303,74 +302,82 @@
 
     <section id="hero">
         <div class="container hero-content">
-            <h1>Infraestructura IT per a l'era moderna</h1>
-            <p>Solucions escalables, segures i d'alta disponibilitat per a FoodLogístic S.A.</p>
-            <a href="#serveis" class="btn">Coneix la Proposta</a>
+            <h1>Infraestructura IT de Confiança</h1>
+            <p>Solucions professionals d'alta disponibilitat per al sector alimentari.</p>
+            <a href="#contacte" class="btn">Sol·licita informació</a>
         </div>
     </section>
 
     <main>
         <section id="serveis" class="container">
             <div class="section-title">
-                <h2>Solucions Intermodulars</h2>
+                <h2>Els nostres Serveis</h2>
             </div>
             <div class="services-grid">
                 <article class="service-card">
                     <i>☁️</i>
                     <h3>Núvol</h3>
-                    <p>Migració de correu corporatiu i eines col·laboratives de nova generació.</p>
+                    <p>Modernització de serveis i eines col·laboratives.</p>
                 </article>
                 <article class="service-card">
                     <i>🛡️</i>
                     <h3>Seguretat</h3>
-                    <p>Compliment estricte de la LOPD/RGPD i protecció dades crítiques.</p>
+                    <p>Protecció de dades sota normativa RGPD/LOPD.</p>
                 </article>
                 <article class="service-card">
                     <i>⚙️</i>
                     <h3>Infraestructura</h3>
-                    <p>Alta disponibilitat i redundància per eliminar aturades de producció.</p>
+                    <p>Redundància de sistemes i servidors d'alta disponibilitat.</p>
                 </article>
                 <article class="service-card">
                     <i>🌐</i>
                     <h3>Web & LSSI</h3>
-                    <p>Presència digital actualitzada i conforme a la normativa legal vigent.</p>
+                    <p>Presència digital moderna i legalment conforme.</p>
                 </article>
             </div>
         </section>
 
-        <section id="infraestructura" style="background: var(--bg-light);">
-            <div class="container split-section">
-                <div class="split-image">
-                    <img src="https://cdn.pixabay.com/photo/2014/08/26/21/27/service-428539_1280.jpg?auto=format&fit=crop&q=80&w=1000"
-                        alt="Servidors alta disponibilitat">
+        <section id="sobre-nosaltres">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Sobre nosaltres</h2>
                 </div>
-                <div class="split-content">
-                    <h2>Alta Disponibilitat</h2>
-                    <p>Implementem sistemes de redundància que garanteixen que el negoci de FoodLogístic no s'aturi mai.
-                        Servidors de fitxers redundants i gestió centralitzada.</p>
+                <div class="about-text">
+                    <p>Som un equip de professionals IT especialitzats en el cicle SMX. Com a socis tecnològics de
+                        <strong>FoodLogístic S.A.</strong>, la nostra missió és transformar els seus riscos en
+                        oportunitats mitjançant una infraestructura robusta, segura i escalable.</p>
                     <br>
-                    <ul style="padding-left: 20px;">
-                        <li>✅ Redundància de hardware</li>
-                        <li>✅ Servidor d'impressió centralitzat</li>
-                        <li>✅ Monitorització 24/7</li>
-                    </ul>
+                    <p>Creiem en la tecnologia com un pilar fonamental per al creixement del negoci alimentari,
+                        garantint que la producció mai s'aturi.</p>
                 </div>
             </div>
         </section>
 
-        <section id="seguretat" class="container">
-            <div class="split-section" style="flex-direction: row-reverse;">
-                <div class="split-image">
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000"
-                        alt="Ciberseguretat">
-                </div>
-                <div class="split-content">
-                    <h2>Seguretat i LOPD</h2>
-                    <p>Protegim el actiu més valuós: la informació. La nostra solució inclou encriptació de dades i
-                        protocols de formació per als empleats.</p>
-                    <br>
-                    <p><i>"La seguretat no és un producte, és un procés."</i></p>
-                </div>
+        <section id="contacte" class="container">
+            <div class="section-title">
+                <h2>Contacte</h2>
+            </div>
+            <div class="contact-container">
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="nom">Nom</label>
+                        <input type="text" id="nom" name="nom" placeholder="Escriu el teu nom complet" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correu electrònic</label>
+                        <input type="email" id="email" name="email" placeholder="correu@exemple.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tel">Telèfon de contacte</label>
+                        <input type="tel" id="tel" name="tel" placeholder="Ex: 600 000 000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="missatge">Missatge</label>
+                        <textarea id="missatge" name="missatge" rows="5" placeholder="Com et podem ajudar?"
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Enviar Missatge</button>
+                </form>
             </div>
         </section>
     </main>
@@ -380,84 +387,80 @@
             <div class="footer-grid">
                 <div>
                     <h3>FoodLogístic S.A.</h3>
-                    <p>Transformació digital real per a empreses líders.</p>
+                    <p>Solucions IT per al Projecte Intermodular SMX.</p>
                 </div>
-                <div class="legal-links">
+                <div>
                     <h3>Legal</h3>
-                    <a href="#">Avís Legal</a>
-                    <a href="#">Política de Privacitat</a>
-                    <a href="#">Política de Cookies (LSSI)</a>
+                    <a href="#" style="display:block; opacity: 0.8; margin-top: 0.5rem;">Política de Cookies (LSSI)</a>
+                    <a href="#" style="display:block; opacity: 0.8; margin-top: 0.5rem;">Avís Legal</a>
                 </div>
                 <div>
                     <h3>Contacte</h3>
                     <p>it-support@foodlogistic.cat</p>
-                    <p>Projecte Intermodular SMX</p>
                 </div>
             </div>
             <hr style="opacity: 0.2; margin-bottom: 1rem;">
-            <p style="text-align: center; opacity: 0.6;">&copy; 2026 Equip IT Professional. Tots els drets reservats.
-            </p>
+            <p style="text-align: center; opacity: 0.6;">&copy; 2026 Equip IT Professional. Projecte realitzat amb
+                l'ajuda de Gemini AI.</p>
         </div>
     </footer>
 
     <div id="cookie-banner">
-        <p>Utilitzem cookies pròpies per millorar la teva experiència segons la normativa LSSI. <a href="#"
-                style="text-decoration: underline;">Més informació</a>.</p>
+        <p>Aquest lloc web utilitza cookies per millorar l'experiència de l'usuari segons la LSSI. <a href="#"
+                style="text-decoration: underline;">Llegir més</a>.</p>
         <button id="accept-cookies" class="btn-small">Acceptar</button>
     </div>
 
     <script>
-        /**
-         * LÒGICA FRONT-END FOODLOGÍSTIC
-         */
         document.addEventListener('DOMContentLoaded', () => {
 
-            // 1. GESTIÓ DE COOKIES (Compliance LSSI)
+            // 1. GESTIÓ DE COOKIES
             const cookieBanner = document.getElementById('cookie-banner');
             const acceptBtn = document.getElementById('accept-cookies');
 
-            // Comprovem si l'usuari ja ha acceptat les cookies
             if (!localStorage.getItem('cookies-acceptades')) {
-                setTimeout(() => {
-                    cookieBanner.style.display = 'flex';
-                }, 1000);
+                setTimeout(() => { cookieBanner.style.display = 'flex'; }, 1000);
             }
 
             acceptBtn.addEventListener('click', () => {
                 localStorage.setItem('cookies-acceptades', 'true');
-                cookieBanner.style.opacity = '0';
-                setTimeout(() => cookieBanner.style.display = 'none', 500);
+                cookieBanner.style.display = 'none';
             });
 
-            // 2. SCROLL SUAU (SMOOTH SCROLL)
+            // 2. SCROLL SUAU
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
                     const target = document.querySelector(this.getAttribute('href'));
                     if (target) {
                         window.scrollTo({
-                            top: target.offsetTop - 70, // Offset per l'header fix
+                            top: target.offsetTop - 70,
                             behavior: 'smooth'
                         });
                     }
                 });
             });
 
-            // 3. EFECTE DE REVELACIÓ (SCROLL REVEAL SIMPLE)
+            // 3. GESTIÓ FORMULARI (Simulació)
+            const form = document.getElementById('contact-form');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Gràcies! Hem rebut la teva consulta (Simulació de formulari).');
+                form.reset();
+            });
+
+            // 4. EFECTE DE REVELACIÓ
             const revealOnScroll = () => {
                 const sections = document.querySelectorAll('section');
                 const triggerBottom = window.innerHeight * 0.8;
-
                 sections.forEach(section => {
-                    const sectionTop = section.getBoundingClientRect().top;
-                    if (sectionTop < triggerBottom) {
+                    if (section.getBoundingClientRect().top < triggerBottom) {
                         section.style.opacity = '1';
                         section.style.transform = 'translateY(0)';
                     }
                 });
             };
 
-            // Estils inicials per a l'efecte
             document.querySelectorAll('section').forEach(s => {
                 if (s.id !== 'hero') {
                     s.style.opacity = '0';
@@ -467,9 +470,10 @@
             });
 
             window.addEventListener('scroll', revealOnScroll);
-            revealOnScroll(); // Llançament inicial
+            revealOnScroll();
         });
     </script>
+
 </body>
 
 </html>
