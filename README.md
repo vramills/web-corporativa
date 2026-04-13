@@ -4,7 +4,7 @@ Aquesta és la web corporativa de **FoodLogístic S.A.**, una empresa fictícia 
 
 ## Demostració
 
-[🌐 URL de la web](https://github.com/vramills/web-corporativa)
+[🌐 URL de la web](https://vramills.github.io/web-corporativa/)
 
 ## Tecnologies Utilitzades
 
