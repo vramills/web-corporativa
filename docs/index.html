@@ -127,6 +127,8 @@
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
         }
 
         .btn:hover {
@@ -197,9 +199,28 @@
             padding-bottom: 5rem;
         }
 
+        .contact-wrapper {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .company-info {
+            flex: 1;
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .company-info h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
         .contact-container {
-            max-width: 600px;
-            margin: 0 auto;
+            flex: 1;
             background: white;
             padding: 2rem;
             border-radius: 10px;
@@ -224,13 +245,75 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             font-family: inherit;
+            font-size: 0.95rem;
         }
 
         .form-group textarea {
             resize: vertical;
         }
 
-        /* COOKIE BANNER */
+        /* CHECKBOXES RGPD */
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            background: var(--bg-light);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            min-width: 18px;
+            cursor: pointer;
+            accent-color: var(--accent);
+            margin-top: 2px;
+        }
+
+        .checkbox-group label {
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            font-weight: 400;
+            cursor: pointer;
+            line-height: 1.5;
+        }
+
+        .checkbox-group label a {
+            color: var(--accent);
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        .checkbox-group label a:hover {
+            color: #219150;
+        }
+
+        .checkbox-required-badge {
+            font-size: 0.7rem;
+            background: var(--accent);
+            color: white;
+            padding: 1px 6px;
+            border-radius: 10px;
+            font-weight: 700;
+            vertical-align: middle;
+            margin-left: 4px;
+        }
+
+        .checkbox-optional-badge {
+            font-size: 0.7rem;
+            background: #999;
+            color: white;
+            padding: 1px 6px;
+            border-radius: 10px;
+            font-weight: 700;
+            vertical-align: middle;
+            margin-left: 4px;
+        }
+
+        /* BANNER DE COOKIES */
         #cookie-banner {
             position: fixed;
             bottom: 0;
@@ -238,22 +321,189 @@
             right: 0;
             background: var(--primary);
             color: white;
-            padding: 1.5rem;
-            display: flex;
+            padding: 1.5rem 2rem;
+            display: none;
             justify-content: space-between;
             align-items: center;
             z-index: 2000;
             font-size: 0.9rem;
-            display: none;
+            gap: 2rem;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .cookie-banner-text {
+            flex: 1;
+            line-height: 1.5;
+        }
+
+        .cookie-banner-text a {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        .cookie-banner-actions {
+            display: flex;
+            gap: 0.75rem;
+            flex-shrink: 0;
         }
 
         .btn-small {
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 1.2rem;
             background: var(--accent);
             border: none;
             color: white;
             cursor: pointer;
-            border-radius: 3px;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+
+        .btn-small:hover {
+            background: #219150;
+        }
+
+        .btn-small-outline {
+            padding: 0.5rem 1.2rem;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+
+        .btn-small-outline:hover {
+            border-color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* MODALS (pàgines legals) */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 3000;
+            overflow-y: auto;
+            padding: 2rem 1rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .modal-box {
+            background: white;
+            border-radius: 12px;
+            max-width: 800px;
+            width: 100%;
+            padding: 3rem;
+            position: relative;
+            margin: auto;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #999;
+            background: none;
+            border: none;
+            font-family: inherit;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            color: var(--primary);
+        }
+
+        .modal-box h2 {
+            color: var(--primary);
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            padding-right: 2rem;
+        }
+
+        .modal-box .modal-subtitle {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .modal-box h3 {
+            color: var(--primary);
+            font-size: 1rem;
+            margin: 1.5rem 0 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .modal-box p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 0.75rem;
+            color: #444;
+        }
+
+        .modal-box ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .modal-box ul li {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 0.3rem;
+        }
+
+        .modal-box table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.85rem;
+        }
+
+        .modal-box table th {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+        }
+
+        .modal-box table td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid #eee;
+            color: #444;
+            vertical-align: top;
+        }
+
+        .modal-box table tr:nth-child(even) td {
+            background: #f9f9f9;
+        }
+
+        .modal-divider {
+            border: none;
+            border-top: 2px solid var(--accent);
+            margin: 1.5rem 0;
+            opacity: 0.3;
         }
 
         /* FOOTER */
@@ -271,7 +521,26 @@
             margin-bottom: 2rem;
         }
 
+        .footer-grid a {
+            display: block;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .footer-grid a:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+
         /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .contact-wrapper {
+                flex-direction: column;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero-content h1 {
                 font-size: 2.2rem;
@@ -280,55 +549,22 @@
             .nav-links {
                 display: none;
             }
-        }
-/* ===== CONTACTE EN 2 COLUMNES ===== */
-        .contact-wrapper {
-            display: flex;
-            gap: 2rem;
-            align-items: flex-start;
-        }
 
-        .company-info {
-            flex: 1;
-            background: var(--bg-light);
-            padding: 2rem;
-            border-radius: 10px;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .company-info h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .contact-container {
-            flex: 1;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 900px) {
-            .contact-wrapper {
+            #cookie-banner {
                 flex-direction: column;
+                gap: 1rem;
             }
-        }      
+
+            .cookie-banner-actions {
+                width: 100%;
+            }
+
+            .modal-box {
+                padding: 2rem 1.5rem;
+            }
+        }
     </style>
 </head>
-
-<!-- Default Statcounter code for Web-corporativa
-https://vramills.github.io/web-corporativa/ -->
-<script type="text/javascript">
-    var sc_project = 13221964;
-    var sc_invisible = 1;
-    var sc_security = "d3973f3a"; 
-</script>
-<script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
-<noscript>
-    <div class="statcounter"><a title="hit counter" href="https://statcounter.com/" target="_blank"><img
-                class="statcounter" src="https://c.statcounter.com/13221964/0/d3973f3a/1/" alt="hit counter"
-                referrerPolicy="no-referrer-when-downgrade"></a></div>
-</noscript>
-<!-- End of Statcounter Code -->
 
 <body>
 
@@ -391,7 +627,8 @@ https://vramills.github.io/web-corporativa/ -->
                 <div class="about-text">
                     <p>Som un equip de professionals IT especialitzats en el cicle SMX. Com a socis tecnològics de
                         <strong>FoodLogístic S.A.</strong>, la nostra missió és transformar els seus riscos en
-                        oportunitats mitjançant una infraestructura robusta, segura i escalable.</p>
+                        oportunitats mitjançant una infraestructura robusta, segura i escalable.
+                    </p>
                     <br>
                     <p>Creiem en la tecnologia com un pilar fonamental per al creixement del negoci alimentari,
                         garantint que la producció mai s'aturi.</p>
@@ -399,60 +636,82 @@ https://vramills.github.io/web-corporativa/ -->
             </div>
         </section>
 
-<section id="contacte" class="container">
-    <div class="section-title">
-        <h2>Contacte</h2>
-    </div>
+        <section id="contacte" class="container">
+            <div class="section-title">
+                <h2>Contacte</h2>
+            </div>
 
-    <div class="contact-wrapper">
+            <div class="contact-wrapper">
 
-        <!-- ESQUERRA: INFO EMPRESA -->
-        <div class="company-info">
-            <h3>FoodLogistic S.A.</h3>
-
-            <p><strong>Raó social:</strong> FoodLogistic S.A.</p>
-            <p><strong>NIF:</strong> A08123456</p>
-            <p><strong>Adreça:</strong> Carrer de la Teixidora, núm. 13, 08302 Mataró Barcelona</p>
-            <p><strong>Inscripció Registral:</strong> Registre Mercantil de Barcelona, Tom 45678, Foli 120, Full
-                B-567890</p>
-            <p><strong>Email:</strong> info@foodlogistic.com</p>
-            <p><strong>Telèfon:</strong> +34 935 55 55 55</p>
-
-            <br>
-
-            <p><strong>Nombre de treballadors:</strong> 35</p>
-            <p><strong>Facturació darrer any:</strong> 25 milions d’euros</p>
-        </div>
-
-        <!-- DRETA: FORMULARI -->
-        <div class="contact-container">
-            <form id="contact-form">
-                <div class="form-group">
-                    <label for="nom">Nom</label>
-                    <input type="text" id="nom" name="nom" required>
+                <!-- ESQUERRA: INFO EMPRESA -->
+                <div class="company-info">
+                    <h3>FoodLogistic S.A.</h3>
+                    <p><strong>Raó social:</strong> FoodLogistic S.A.</p>
+                    <p><strong>NIF:</strong> A08123456</p>
+                    <p><strong>Adreça:</strong> Carrer de la Teixidora, núm. 13, 08302 Mataró Barcelona</p>
+                    <p><strong>Inscripció Registral:</strong> Registre Mercantil de Barcelona, Tom 45678, Foli 120, Full
+                        B-567890</p>
+                    <p><strong>Email:</strong> info@foodlogistic.com</p>
+                    <p><strong>Telèfon:</strong> +34 935 55 55 55</p>
+                    <br>
+                    <p><strong>Nombre de treballadors:</strong> 35</p>
+                    <p><strong>Facturació darrer any:</strong> 25 milions d'euros</p>
                 </div>
 
-                <div class="form-group">
-                    <label for="email">Correu electrònic</label>
-                    <input type="email" id="email" name="email" required>
+                <!-- DRETA: FORMULARI -->
+                <div class="contact-container">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="nom">Nom</label>
+                            <input type="text" id="nom" name="nom" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Correu electrònic</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tel">Telèfon de contacte</label>
+                            <input type="tel" id="tel" name="tel" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="missatge">Missatge</label>
+                            <textarea id="missatge" name="missatge" rows="4" required></textarea>
+                        </div>
+
+                        <!-- CHECKBOX 1: DADES PERSONALS (obligatori) -->
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="consent-dades" name="consent-dades" required>
+                            <label for="consent-dades">
+                                He llegit i accepto la
+                                <a href="#" onclick="obrirModal('modal-privacitat'); return false;">Política de
+                                    Privacitat</a>
+                                i autoritzo el tractament de les meves dades personals per a la gestió de la meva
+                                consulta.
+                                <span class="checkbox-required-badge">OBLIGATORI</span>
+                            </label>
+                        </div>
+
+                        <!-- CHECKBOX 2: COMUNICACIONS COMERCIALS (opcional) -->
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="consent-comercial" name="consent-comercial">
+                            <label for="consent-comercial">
+                                Autoritzo FoodLogístic S.A. a enviar-me comunicacions comercials i informació sobre els
+                                seus serveis, d'acord amb l'
+                                <a href="#" onclick="obrirModal('modal-avis-legal'); return false;">Avís Legal</a>.
+                                <span class="checkbox-optional-badge">OPCIONAL</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn" style="width: 100%; margin-top: 0.5rem;">Enviar
+                            Missatge</button>
+                    </form>
                 </div>
 
-                <div class="form-group">
-                    <label for="tel">Telèfon de contacte</label>
-                    <input type="tel" id="tel" name="tel" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="missatge">Missatge</label>
-                    <textarea id="missatge" name="missatge" rows="5" required></textarea>
-                </div>
-
-                <button type="submit" class="btn" style="width: 100%;">Enviar Missatge</button>
-            </form>
-        </div>
-
-    </div>
-</section>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -464,65 +723,327 @@ https://vramills.github.io/web-corporativa/ -->
                 </div>
                 <div>
                     <h3>Legal</h3>
-                    <a href="#" style="display:block; opacity: 0.8; margin-top: 0.5rem;">Política de Cookies (LSSI)</a>
-                    <a href="#" style="display:block; opacity: 0.8; margin-top: 0.5rem;">Avís Legal</a>
+                    <a onclick="obrirModal('modal-cookies')">Política de Cookies (LSSI)</a>
+                    <a onclick="obrirModal('modal-avis-legal')">Avís Legal</a>
+                    <a onclick="obrirModal('modal-privacitat')">Política de Privacitat</a>
                 </div>
                 <div>
                     <h3>Contacte</h3>
                     <p>info@foodlogistic.com</p>
+                    <p>+34 935 55 55 55</p>
                 </div>
             </div>
             <hr style="opacity: 0.2; margin-bottom: 1rem;">
-            <p style="text-align: center; opacity: 0.6;">&copy; 2026 Equip IT Professional. Projecte realitzat amb
-                l'ajuda de Gemini AI.</p>
+            <p style="text-align: center; opacity: 0.6;">&copy; 2026 FoodLogístic S.A. Tots els drets reservats.</p>
         </div>
     </footer>
 
+    <!-- ============================================================ -->
+    <!-- BANNER DE COOKIES                                            -->
+    <!-- ============================================================ -->
     <div id="cookie-banner">
-        <p>Aquest lloc web utilitza cookies per millorar l'experiència de l'usuari segons la LSSI. <a href="#"
-                style="text-decoration: underline;">Llegir més</a>.</p>
-        <button id="accept-cookies" class="btn-small">Acceptar</button>
+        <div class="cookie-banner-text">
+            🍪 <strong>Utilitzem cookies</strong> pròpies i de tercers per millorar l'experiència de navegació i
+            analitzar el trànsit del lloc web, d'acord amb la <strong>LSSI-CE</strong> i el <strong>RGPD</strong>.
+            Podeu acceptar totes les cookies, rebutjar-les o consultar la nostra
+            <a href="#" onclick="obrirModal('modal-cookies'); return false;">Política de Cookies</a>.
+        </div>
+        <div class="cookie-banner-actions">
+            <button id="reject-cookies" class="btn-small-outline">Rebutjar</button>
+            <button id="accept-cookies" class="btn-small">Acceptar totes</button>
+        </div>
     </div>
+
+    <!-- ============================================================ -->
+    <!-- MODAL: AVÍS LEGAL                                            -->
+    <!-- ============================================================ -->
+    <div id="modal-avis-legal" class="modal-overlay" onclick="tancarModalFora(event, 'modal-avis-legal')">
+        <div class="modal-box">
+            <button class="modal-close" onclick="tancarModal('modal-avis-legal')">&times;</button>
+            <h2>Avís Legal</h2>
+            <p class="modal-subtitle">Informació legal obligatòria — Art. 10 LSSI-CE</p>
+
+            <h3>1. Identificació del Responsable</h3>
+            <p>En compliment de l'article 10 de la Llei 34/2002, d'11 de juliol, de Serveis de la Societat de la
+                Informació i de Comerç Electrònic (LSSI-CE), s'informa:</p>
+            <ul>
+                <li><strong>Raó social:</strong> FoodLogistic S.A.</li>
+                <li><strong>NIF:</strong> A08123456</li>
+                <li><strong>Domicili social:</strong> Carrer de la Teixidora, núm. 13, 08302 Mataró (Barcelona)</li>
+                <li><strong>Inscripció Registral:</strong> Registre Mercantil de Barcelona, Tom 45678, Foli 120, Full
+                    B-567890</li>
+                <li><strong>Correu electrònic:</strong> info@foodlogistic.com</li>
+                <li><strong>Telèfon:</strong> +34 935 55 55 55</li>
+            </ul>
+
+            <hr class="modal-divider">
+
+            <h3>2. Objecte i Àmbit d'Aplicació</h3>
+            <p>Aquest avís legal regula l'ús del lloc web de FoodLogístic S.A. L'accés i la utilització d'aquest lloc
+                web impliquen l'acceptació plena i sense reserves de totes les disposicions incloses en aquest avís
+                legal.</p>
+
+            <h3>3. Propietat Intel·lectual i Industrial</h3>
+            <p>Tots els continguts d'aquest lloc web (textos, imatges, gràfics, logotips, dissenys i codi font) són
+                propietat de FoodLogístic S.A. o de tercers que n'han autoritzat l'ús, i estan protegits per la
+                legislació vigent en matèria de propietat intel·lectual i industrial. Queda prohibida la seva
+                reproducció, distribució o transformació sense autorització expressa.</p>
+
+            <h3>4. Comunicacions Comercials</h3>
+            <p>FoodLogístic S.A. podrà enviar comunicacions comercials als usuaris que hagin donat el seu consentiment
+                exprés a través del formulari de contacte. L'usuari podrà revocar aquest consentiment en qualsevol
+                moment enviant un correu a <strong>info@foodlogistic.com</strong> amb l'assumpte "Baixa comunicacions
+                comercials".</p>
+
+            <h3>5. Mesures de Seguretat</h3>
+            <p>FoodLogístic S.A. ha adoptat les mesures tècniques i organitzatives necessàries per garantir la seguretat
+                de les dades personals i evitar-ne l'alteració, la pèrdua, el tractament o l'accés no autoritzat,
+                d'acord amb el que estableix el Reglament (UE) 2016/679 (RGPD) i la LOPDGDD.</p>
+
+            <h3>6. Legislació Aplicable i Jurisdicció</h3>
+            <p>Les relacions entre FoodLogístic S.A. i els usuaris es regeixen per la normativa espanyola i de la Unió
+                Europea vigent. Per a la resolució de qualsevol controvèrsia, les parts se sotmeten als Jutjats i
+                Tribunals de Mataró (Barcelona), amb renúncia expressa a qualsevol altre fur que pogués correspondre'ls.
+            </p>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- MODAL: POLÍTICA DE PRIVACITAT                                -->
+    <!-- ============================================================ -->
+    <div id="modal-privacitat" class="modal-overlay" onclick="tancarModalFora(event, 'modal-privacitat')">
+        <div class="modal-box">
+            <button class="modal-close" onclick="tancarModal('modal-privacitat')">&times;</button>
+            <h2>Política de Privacitat</h2>
+            <p class="modal-subtitle">Protecció de dades personals — Reglament (UE) 2016/679 (RGPD) i LOPDGDD</p>
+
+            <h3>1. Responsable del Tractament</h3>
+            <ul>
+                <li><strong>Identitat:</strong> FoodLogistic S.A.</li>
+                <li><strong>NIF:</strong> A08123456</li>
+                <li><strong>Adreça:</strong> Carrer de la Teixidora, núm. 13, 08302 Mataró (Barcelona)</li>
+                <li><strong>Contacte DPD:</strong> privacitat@foodlogistic.com</li>
+            </ul>
+
+            <hr class="modal-divider">
+
+            <h3>2. Finalitat del Tractament</h3>
+            <p>Les dades personals recollides a través del formulari de contacte es tracten amb les finalitats següents:
+            </p>
+            <ul>
+                <li>Gestionar i respondre les consultes o sol·licituds d'informació enviades per l'usuari.</li>
+                <li>Enviar comunicacions comercials sobre els nostres serveis, únicament si l'usuari n'ha donat el seu
+                    consentiment exprés.</li>
+            </ul>
+
+            <h3>3. Base Legal del Tractament</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Finalitat</th>
+                        <th>Base Legal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Gestió de consultes</td>
+                        <td>Interès legítim de l'empresa (Art. 6.1.f RGPD)</td>
+                    </tr>
+                    <tr>
+                        <td>Comunicacions comercials</td>
+                        <td>Consentiment exprés de l'interessat (Art. 6.1.a RGPD)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>4. Destinataris de les Dades</h3>
+            <p>Les dades no es cediran a tercers, excepte en els casos previstos per la llei o quan sigui necessari per
+                a la prestació del servei (p.ex. proveïdors de serveis informàtics sota acord de confidencialitat). No
+                es realitzen transferències internacionals de dades.</p>
+
+            <h3>5. Termini de Conservació</h3>
+            <p>Les dades es conservaran durant el temps necessari per a la gestió de la consulta i, posteriorment,
+                durant els terminis legalment exigits. En cas de consentiment per a comunicacions comercials, les dades
+                es conservaran fins que l'usuari revoqui el consentiment.</p>
+
+            <h3>6. Drets de l'Interessat (ARSLOP)</h3>
+            <p>L'usuari pot exercir els drets següents enviant una sol·licitud a
+                <strong>privacitat@foodlogistic.com</strong> adjuntant còpia del DNI:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dret</th>
+                        <th>Descripció</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Accés</strong></td>
+                        <td>Conèixer quines dades personals es tracten.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Rectificació</strong></td>
+                        <td>Corregir dades inexactes o incompletes.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Supressió</strong></td>
+                        <td>Sol·licitar l'eliminació de les dades.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Limitació</strong></td>
+                        <td>Restringir el tractament en determinades circumstàncies.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Oposició</strong></td>
+                        <td>Oposar-se al tractament per motius personals.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Portabilitat</strong></td>
+                        <td>Rebre les dades en format estructurat i reutilitzable.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>L'usuari té dret a presentar una reclamació davant l'Agència Espanyola de Protecció de Dades (AEPD) a
+                través de <strong>www.aepd.es</strong>.</p>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- MODAL: POLÍTICA DE COOKIES                                   -->
+    <!-- ============================================================ -->
+    <div id="modal-cookies" class="modal-overlay" onclick="tancarModalFora(event, 'modal-cookies')">
+        <div class="modal-box">
+            <button class="modal-close" onclick="tancarModal('modal-cookies')">&times;</button>
+            <h2>Política de Cookies</h2>
+            <p class="modal-subtitle">Informació sobre cookies — Art. 22.2 LSSI-CE i RGPD</p>
+
+            <h3>1. Què és una Cookie?</h3>
+            <p>Una cookie és un fitxer de text petit que s'emmagatzema al navegador de l'usuari quan visita un lloc web.
+                Permeten que el lloc web recordi les preferències de l'usuari i millorin l'experiència de navegació.</p>
+
+            <hr class="modal-divider">
+
+            <h3>2. Cookies Utilitzades</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Tipus</th>
+                        <th>Finalitat</th>
+                        <th>Durada</th>
+                        <th>Propietari</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>cookies-acceptades</code></td>
+                        <td>Tècnica / Preferències</td>
+                        <td>Desa la decisió de l'usuari sobre el consentiment de cookies per no tornar a mostrar el
+                            banner.</td>
+                        <td>Sessió / localStorage</td>
+                        <td>FoodLogístic S.A.</td>
+                    </tr>
+                    <tr>
+                        <td><code>sc_*</code> (Statcounter)</td>
+                        <td>Analítica de tercers</td>
+                        <td>Mesura el nombre de visites i l'activitat dels usuaris al lloc web de forma anònima.</td>
+                        <td>Fins a 2 anys</td>
+                        <td>Statcounter (IE)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>3. Com Acceptar o Rebutjar les Cookies</h3>
+            <p>En accedir al lloc web per primera vegada, apareixerà un banner que permet acceptar o rebutjar les
+                cookies. Podeu modificar la vostra decisió en qualsevol moment:</p>
+            <ul>
+                <li><strong>Des del navegador:</strong> la majoria de navegadors permeten bloquejar o eliminar cookies
+                    des de la configuració de privacitat.</li>
+                <li><strong>Eina opt-out de Statcounter:</strong> podeu desactivar el seguiment de Statcounter a <a
+                        href="https://statcounter.com/about/legal/#optout" target="_blank"
+                        style="color: var(--accent);">statcounter.com/optout</a>.</li>
+            </ul>
+
+            <h3>4. Configuració del Navegador</h3>
+            <ul>
+                <li><a href="https://support.google.com/chrome/answer/95647" target="_blank"
+                        style="color: var(--accent);">Google Chrome</a></li>
+                <li><a href="https://support.mozilla.org/ca/kb/activa-i-desactiva-les-galetes" target="_blank"
+                        style="color: var(--accent);">Mozilla Firefox</a></li>
+                <li><a href="https://support.apple.com/ca-es/guide/safari/sfri11471/mac" target="_blank"
+                        style="color: var(--accent);">Safari</a></li>
+                <li><a href="https://support.microsoft.com/ca-es/microsoft-edge" target="_blank"
+                        style="color: var(--accent);">Microsoft Edge</a></li>
+            </ul>
+
+            <h3>5. Actualitzacions d'aquesta Política</h3>
+            <p>FoodLogístic S.A. es reserva el dret de modificar aquesta política de cookies per adaptar-la a nous
+                requisits legals o canvis al lloc web. Es recomana revisar-la periòdicament. Darrera actualització:
+                abril de 2026.</p>
+
+            <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem;">
+                <button class="btn-small" onclick="acceptarCookies(); tancarModal('modal-cookies')">Acceptar
+                    totes</button>
+                <button class="btn-small-outline" style="background: transparent; border: 1px solid #ccc; color: #555;"
+                    onclick="rebutjarCookies(); tancarModal('modal-cookies')">Rebutjar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Default Statcounter code -->
+    <script type="text/javascript">
+        var sc_project = 13221964;
+        var sc_invisible = 1;
+        var sc_security = "d3973f3a";
+    </script>
+    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
-            // 1. GESTIÓ DE COOKIES
+            // ── BANNER DE COOKIES ──────────────────────────────────
             const cookieBanner = document.getElementById('cookie-banner');
             const acceptBtn = document.getElementById('accept-cookies');
+            const rejectBtn = document.getElementById('reject-cookies');
 
             if (!localStorage.getItem('cookies-acceptades')) {
                 setTimeout(() => { cookieBanner.style.display = 'flex'; }, 1000);
             }
 
-            acceptBtn.addEventListener('click', () => {
-                localStorage.setItem('cookies-acceptades', 'true');
-                cookieBanner.style.display = 'none';
-            });
+            acceptBtn.addEventListener('click', acceptarCookies);
+            rejectBtn.addEventListener('click', rebutjarCookies);
 
-            // 2. SCROLL SUAU
+            // ── SCROLL SUAU ────────────────────────────────────────
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
                     e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
+                    const target = document.querySelector(href);
                     if (target) {
-                        window.scrollTo({
-                            top: target.offsetTop - 70,
-                            behavior: 'smooth'
-                        });
+                        window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
                     }
                 });
             });
 
-            // 3. GESTIÓ FORMULARI (Simulació)
+            // ── FORMULARI ──────────────────────────────────────────
             const form = document.getElementById('contact-form');
             form.addEventListener('submit', (e) => {
                 e.preventDefault();
-                alert('Gràcies! Hem rebut la teva consulta (Simulació de formulari).');
+                const consentDades = document.getElementById('consent-dades').checked;
+                if (!consentDades) {
+                    alert('Cal acceptar la Política de Privacitat per enviar el formulari.');
+                    return;
+                }
+                const comercial = document.getElementById('consent-comercial').checked;
+                const msg = comercial
+                    ? 'Gràcies! Hem rebut la teva consulta. T\'enviarem comunicacions sobre els nostres serveis.'
+                    : 'Gràcies! Hem rebut la teva consulta. No t\'enviarem comunicacions comercials.';
+                alert(msg + ' (Simulació de formulari)');
                 form.reset();
             });
 
-            // 4. EFECTE DE REVELACIÓ
+            // ── EFECTE DE REVELACIÓ ────────────────────────────────
             const revealOnScroll = () => {
                 const sections = document.querySelectorAll('section');
                 const triggerBottom = window.innerHeight * 0.8;
@@ -545,6 +1066,33 @@ https://vramills.github.io/web-corporativa/ -->
             window.addEventListener('scroll', revealOnScroll);
             revealOnScroll();
         });
+
+        // ── FUNCIONS GLOBALS ───────────────────────────────────────
+        function acceptarCookies() {
+            localStorage.setItem('cookies-acceptades', 'true');
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+
+        function rebutjarCookies() {
+            localStorage.setItem('cookies-acceptades', 'rebutjat');
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+
+        function obrirModal(id) {
+            document.getElementById(id).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function tancarModal(id) {
+            document.getElementById(id).classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function tancarModalFora(event, id) {
+            if (event.target === document.getElementById(id)) {
+                tancarModal(id);
+            }
+        }
     </script>
 
 </body>
