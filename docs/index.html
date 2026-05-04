@@ -12,6 +12,7 @@
         :root {
             --primary: #2c3e50;
             --accent: #27ae60;
+            --accent-dark: #1a6e40; /* Versió més fosca per a contrast superior a 4.5:1 */
             --bg-light: #f8f9fa;
             --text-dark: #333333;
             --text-light: #ffffff;
@@ -23,6 +24,12 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        /* Focus visible per a navegació teclat - ACCESSIBILITAT */
+        *:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
         }
 
         body {
@@ -88,9 +95,12 @@
             gap: 2rem;
         }
 
-        .nav-links a:hover {
+        .nav-links a:hover,
+        .nav-links a:focus-visible {
             color: var(--accent);
             transition: var(--transition);
+            outline: 2px solid var(--accent);
+            outline-offset: 4px;
         }
 
         /* HERO SECTION */
@@ -120,7 +130,7 @@
         .btn {
             display: inline-block;
             padding: 1rem 2.5rem;
-            background: var(--accent);
+            background: var(--accent-dark);
             color: white;
             border: none;
             border-radius: 5px;
@@ -131,8 +141,9 @@
             font-size: 1rem;
         }
 
-        .btn:hover {
-            background: #219150;
+        .btn:hover,
+        .btn:focus-visible {
+            background: #0f5f31;
             transform: translateY(-3px);
         }
 
@@ -177,7 +188,14 @@
 
         .service-card i {
             font-size: 2.5rem;
-            color: var(--accent);
+            color: var(--accent-dark);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent-dark);
             margin-bottom: 1.5rem;
             display: block;
         }
@@ -349,7 +367,7 @@
 
         .btn-small {
             padding: 0.5rem 1.2rem;
-            background: var(--accent);
+            background: var(--accent-dark);
             border: none;
             color: white;
             cursor: pointer;
@@ -360,8 +378,11 @@
             transition: var(--transition);
         }
 
-        .btn-small:hover {
-            background: #219150;
+        .btn-small:hover,
+        .btn-small:focus-visible {
+            background: #0f5f31;
+            outline: 2px solid #fff;
+            outline-offset: 2px;
         }
 
         .btn-small-outline {
@@ -377,9 +398,12 @@
             transition: var(--transition);
         }
 
-        .btn-small-outline:hover {
+        .btn-small-outline:hover,
+        .btn-small-outline:focus-visible {
             border-color: white;
             background: rgba(255, 255, 255, 0.1);
+            outline: 2px solid white;
+            outline-offset: 2px;
         }
 
         /* MODALS (pàgines legals) */
@@ -420,6 +444,12 @@
             border: none;
             font-family: inherit;
             line-height: 1;
+            padding: 0.5rem;
+            min-width: 44px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .modal-close:hover {
@@ -529,9 +559,12 @@
             transition: var(--transition);
         }
 
-        .footer-grid a:hover {
+        .footer-grid a:hover,
+        .footer-grid a:focus-visible {
             opacity: 1;
             color: var(--accent);
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
         }
 
         /* RESPONSIVE */
@@ -586,33 +619,29 @@
         <div class="container hero-content">
             <h1>Infraestructura IT de Confiança</h1>
             <p>Solucions professionals d'alta disponibilitat per al sector alimentari.</p>
-            <a href="#contacte" class="btn">Sol·licita informació</a>
-        </div>
-    </section>
-
-    <main>
+                <a href="#contacte" class="btn" aria-label="Sol·licita informació sobre els nostres serveis">Sol·licita informació</a>
         <section id="serveis" class="container">
             <div class="section-title">
                 <h2>Els nostres Serveis</h2>
             </div>
             <div class="services-grid">
                 <article class="service-card">
-                    <i>☁️</i>
+                    <span role="img" aria-label="Núvol - servei de modernització" class="service-icon">☁️</span>
                     <h3>Núvol</h3>
                     <p>Modernització de serveis i eines col·laboratives.</p>
                 </article>
                 <article class="service-card">
-                    <i>🛡️</i>
+                    <span role="img" aria-label="Proteccio - servei de seguretat" class="service-icon">🛡️</span>
                     <h3>Seguretat</h3>
                     <p>Protecció de dades sota normativa RGPD/LOPD.</p>
                 </article>
                 <article class="service-card">
-                    <i>⚙️</i>
+                    <span role="img" aria-label="Rodes - servei d'infraestructura" class="service-icon">⚙️</span>
                     <h3>Infraestructura</h3>
                     <p>Redundància de sistemes i servidors d'alta disponibilitat.</p>
                 </article>
                 <article class="service-card">
-                    <i>🌐</i>
+                    <span role="img" aria-label="Globus terraqueo - servei de web i LSSI" class="service-icon">🌐</span>
                     <h3>Web & LSSI</h3>
                     <p>Presència digital moderna i legalment conforme.</p>
                 </article>
@@ -741,7 +770,7 @@
     <!-- ============================================================ -->
     <!-- BANNER DE COOKIES                                            -->
     <!-- ============================================================ -->
-    <div id="cookie-banner">
+    <div id="cookie-banner" role="region" aria-live="polite" aria-label="Avís de cookies">
         <div class="cookie-banner-text">
             🍪 <strong>Utilitzem cookies</strong> pròpies i de tercers per millorar l'experiència de navegació i
             analitzar el trànsit del lloc web, d'acord amb la <strong>LSSI-CE</strong> i el <strong>RGPD</strong>.
@@ -749,18 +778,18 @@
             <a href="#" onclick="obrirModal('modal-cookies'); return false;">Política de Cookies</a>.
         </div>
         <div class="cookie-banner-actions">
-            <button id="reject-cookies" class="btn-small-outline">Rebutjar</button>
-            <button id="accept-cookies" class="btn-small">Acceptar totes</button>
+            <button id="reject-cookies" class="btn-small-outline" aria-label="Rebutjar totes les cookies">Rebutjar</button>
+            <button id="accept-cookies" class="btn-small" aria-label="Acceptar totes les cookies">Acceptar totes</button>
         </div>
     </div>
 
     <!-- ============================================================ -->
     <!-- MODAL: AVÍS LEGAL                                            -->
     <!-- ============================================================ -->
-    <div id="modal-avis-legal" class="modal-overlay" onclick="tancarModalFora(event, 'modal-avis-legal')">
+    <div id="modal-avis-legal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-avis-legal-title" onclick="tancarModalFora(event, 'modal-avis-legal')">
         <div class="modal-box">
-            <button class="modal-close" onclick="tancarModal('modal-avis-legal')">&times;</button>
-            <h2>Avís Legal</h2>
+            <button class="modal-close" aria-label="Tancar modal de avís legal" onclick="tancarModal('modal-avis-legal')">&times;</button>
+            <h2 id="modal-avis-legal-title">Avís Legal</h2>
             <p class="modal-subtitle">Informació legal obligatòria — Art. 10 LSSI-CE</p>
 
             <h3>1. Identificació del Responsable</h3>
@@ -811,10 +840,10 @@
     <!-- ============================================================ -->
     <!-- MODAL: POLÍTICA DE PRIVACITAT                                -->
     <!-- ============================================================ -->
-    <div id="modal-privacitat" class="modal-overlay" onclick="tancarModalFora(event, 'modal-privacitat')">
+    <div id="modal-privacitat" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-privacitat-title" onclick="tancarModalFora(event, 'modal-privacitat')">
         <div class="modal-box">
-            <button class="modal-close" onclick="tancarModal('modal-privacitat')">&times;</button>
-            <h2>Política de Privacitat</h2>
+            <button class="modal-close" aria-label="Tancar modal de privacitat" onclick="tancarModal('modal-privacitat')">&times;</button>
+            <h2 id="modal-privacitat-title">Política de Privacitat</h2>
             <p class="modal-subtitle">Protecció de dades personals — Reglament (UE) 2016/679 (RGPD) i LOPDGDD</p>
 
             <h3>1. Responsable del Tractament</h3>
@@ -912,10 +941,10 @@
     <!-- ============================================================ -->
     <!-- MODAL: POLÍTICA DE COOKIES                                   -->
     <!-- ============================================================ -->
-    <div id="modal-cookies" class="modal-overlay" onclick="tancarModalFora(event, 'modal-cookies')">
+    <div id="modal-cookies" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-cookies-title" onclick="tancarModalFora(event, 'modal-cookies')">
         <div class="modal-box">
-            <button class="modal-close" onclick="tancarModal('modal-cookies')">&times;</button>
-            <h2>Política de Cookies</h2>
+            <button class="modal-close" aria-label="Tancar modal de cookies" onclick="tancarModal('modal-cookies')">&times;</button>
+            <h2 id="modal-cookies-title">Política de Cookies</h2>
             <p class="modal-subtitle">Informació sobre cookies — Art. 22.2 LSSI-CE i RGPD</p>
 
             <h3>1. Què és una Cookie?</h3>
